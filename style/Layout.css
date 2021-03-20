@@ -1,19 +1,21 @@
 .canvas-container {
-	position: fixed;
 	z-index: -1;
 	top: 0;
 	left: 0;
 	width: 100vw;
-	height: 100vh;
+	padding: 20px;
 }
 
 .canvas-container>canvas {
 	width: 100%;
 	height: 100%;
+	background: url('./../resources/Images/room.jpg');
+	background-size: cover;
 }
 
 #comment_container {
 	height: 70%;
 	padding: 1em 1em;
-	overflow-y: scroll
+	overflow-y: hidden;
+	overflow-x: hidden;
 }

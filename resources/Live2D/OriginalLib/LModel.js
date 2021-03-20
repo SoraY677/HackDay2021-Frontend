@@ -225,12 +225,12 @@ export class LModel extends CubismUserModel {
 
 		const projectionMatrix = new CubismMatrix44();
 		projectionMatrix.scale(2, 2);
-		projectionMatrix.translateRelative(0, -1)
+		projectionMatrix.translateRelative(0, -0.79)
 		projectionMatrix.scaleRelative(3, 3);
 		projectionMatrix.multiplyByMatrix(modelMatrix);
 
 		// キャンバスサイズを渡す
-		const viewportSize = canvas.width < canvas.height ? canvas.width : canvas.height
+		const viewportSize = canvas.width;
 		const viewport = [0, 0, viewportSize, viewportSize] //canvas.width, canvas.height];
 		this.getRenderer().setRenderState(frameBuffer, viewport);
 		this.getRenderer().setMvpMatrix(projectionMatrix);

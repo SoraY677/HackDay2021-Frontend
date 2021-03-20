@@ -39,7 +39,7 @@ export class Manager {
 	constructor(canvasDom, modelSetting) {
 		canvas = canvasDom
 		canvas.width = document.body.clientWidth;
-		canvas.height = document.body.clientHeight;
+		canvas.height = canvas.width;
 		gl = canvas.getContext('webGL') || canvas.getContext('experimental-webgl')
 		gl.enable(gl.BLEND);
 		gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
@@ -81,10 +81,10 @@ export class Manager {
 			Common.updateTime();
 
 			// グラフィックの設定一覧
-			gl.clearColor(1.0, 1.0, 1.0, 1.0); // 画面の初期化
 			gl.enable(gl.DEPTH_TEST); // 深度テストを有効化
 			gl.depthFunc(gl.LEQUAL); // 近くにある物体は、遠くにある物体を覆い隠す
-			gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT); // カラーバッファや深度バッファをクリアする
+			gl.clearColor(1.0, 1.0, 1.0, 1.0); // 画面の初期化
+			// gl.clear(gl.COLOR_BUFFER_BIT); // カラーバッファや深度バッファをクリアする
 			gl.clearDepth(1.0);
 			gl.enable(gl.BLEND);
 			gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);

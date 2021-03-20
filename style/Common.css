@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 :root {}
 
 * {
@@ -9,6 +10,7 @@ body {
 	height: 100vh !important;
 	margin: unset !important;
 	overflow: hidden !important;
+	font-family: 'Yusei Magic', sans-serif;
 }
 
 ul {

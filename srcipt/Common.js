@@ -21,6 +21,8 @@ export function insertCommentDOM(targetDOM, text, targetNum) {
 	else {
 		throw ('コメントをした対象がおかしいので確認')
 	}
+	const position = targetDOM.scrollHeight
+	targetDOM.scrollTo(0, position);
 }
 
 export async function fetchAdviserComment(text) {
