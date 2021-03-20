@@ -43,7 +43,7 @@ export async function fetchAdviserComment(text) {
 				}
 			}
 		}
-		req.open('GET', `http://ec2-3-112-68-32.ap-northeast-1.compute.amazonaws.com/?text=${text}`)
+		req.open('GET', `http://ec2-3-112-68-32.ap-northeast-1.compute.amazonaws.com?text=${text}`)
 		req.send()
 	})
 
