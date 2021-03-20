@@ -43,7 +43,7 @@ export async function fetchAdviserComment(text) {
 				}
 			}
 		}
-		req.open('GET', `https://cors-anywhere.herokuapp.com/https://g6ykvq7is4.execute-api.ap-northeast-1.amazonaws.com/?text=${text}`)
+		req.open('GET', `https://g6ykvq7is4.execute-api.ap-northeast-1.amazonaws.com/?text=${text}`)
 		req.send()
 	})
 
