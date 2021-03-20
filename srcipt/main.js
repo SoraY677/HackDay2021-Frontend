@@ -1,3 +1,5 @@
+import "../style/main.css"
+
 import {
 	Manager
 } from '../resources/Live2D/OriginalLib/Manager.js'
@@ -11,4 +13,6 @@ const modelSetting = {
 
 const enter = new Manager(canvas, modelSetting)
 
-enter.switchLipSync()
+
+
+// enter.switchLipSync()
