@@ -7,12 +7,13 @@ export class Recognition {
 		const SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 		this.recognition = new SpeechRecognition();
 		this.recognition.continuous = true;
+
 		this.isRecogStarted = false
 
 		// 文章を読み取った際にDOMに反映していく処理
 		this.comment_i = 0;
 		this.recognition.onresult = (event) => {
-			insertCommentDOM(targetDOM, event.results[this.comment_i][0].transcript)
+			insertUserCommentDOM(targetDOM, event.results[this.comment_i][0].transcript, 0)
 			this.comment_i++;
 		}
 	}

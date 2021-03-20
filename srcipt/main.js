@@ -1,18 +1,25 @@
 import "../style/main.css"
 
 import {
-	Manager
-} from '../resources/Live2D/OriginalLib/Manager.js'
+	Recognition
+} from "./Recognition"
 
-const canvas = document.getElementById('model_canvas')
-const modelSetting = {
-	'modelRootDir': '../resources/Live2D//Model/Hiyori/',
-	'modelJson': 'Hiyori.model3.json',
-	'modelMoc': 'Hiyori.moc3'
-}
-
-const enter = new Manager(canvas, modelSetting)
+import {
+	Live2DMgr as Model
+} from './Live2DMgr'
 
 
 
-// enter.switchLipSync()
+// 初期化系
+// - 音声録音セッティング
+const voiceRecog = new Recognition(document.getElementById('comment_list'))
+
+voiceRecog.startRecog()
+
+const model = new Model(
+	document.getElementById('model_canvas'), {
+		'modelRootDir': '../resources/Live2D//Model/Hiyori/',
+		'modelJson': 'Hiyori.model3.json',
+		'modelMoc': 'Hiyori.moc3'
+	}
+)
