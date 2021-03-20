@@ -6,6 +6,7 @@ export class Recognition {
 	constructor(targetDOM, callback) {
 		const SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 		this.recognition = new SpeechRecognition();
+		this.recognition.lang = "ja-JP"; //言語指定：日本語
 		this.recognition.continuous = true;
 
 		this.recogTextList = []
