@@ -34,6 +34,8 @@ import {
 	Common
 } from "./Common"
 
+const LipSyncStateNum = 3
+const Increment = 0.2
 export class LModelAction extends CubismUserModel {
 
 	constructor() {
@@ -43,7 +45,7 @@ export class LModelAction extends CubismUserModel {
 		this._motionList = []
 		this._motionManager = new CubismMotionManager()
 		this.value = 0;
-		this.increment = 0.1
+		this.increment = Increment
 		this.lipSyncInterval = 1;
 		this.lipSyncFlag = false;
 	}
@@ -124,12 +126,12 @@ export class LModelAction extends CubismUserModel {
 	/**
 	 * リップシンクをtrue/falseを切り替える
 	 */
-	switchLipSync() {
+	startLipSync(count) {
 		this.lipSyncFlag = !this.lipSyncFlag
-		console.log(this.lipSyncFlag)
+		this.wordCount = count;
+		this.count = 0;
+		this.lipSyncInterval = 1;
 	}
-
-
 
 	/**
 	 * モデルを更新
@@ -149,22 +151,26 @@ export class LModelAction extends CubismUserModel {
 		}
 
 		if (this._lipsync) {
-			if (this.lipSyncInterval % 4 == 0 && this.lipSyncFlag) {
+			if (this.lipSyncInterval % LipSyncStateNum == 0 && this.lipSyncFlag) {
+
 				if (this.value < 0) {
 					this.value = 0.0;
 					this.increment *= -1.0
-					this.lipSyncFlag = false
+					this.count++
 				} else if (this.value >= 1) {
 					this.value = 1.0;
 					this.increment *= -1.0
 				}
+
+				if (this.count == this.wordCount) this.lipSyncFlag = false
+
 
 				for (let i = 0; i < model._modelSetting.getLipSyncParameterCount(); ++i) {
 					model._model.setParameterValueById(model._modelSetting.getLipSyncParameterId(i), this.value, 0.8);
 				}
 				this.value += this.increment
 			}
-			this.lipSyncInterval++
+			this.lipSyncInterval += 1
 		}
 
 		if (this._pose != null) {

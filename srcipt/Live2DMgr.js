@@ -8,7 +8,8 @@ export class Live2DMgr {
 		this.manager = new Manager(canvas, modelSetting)
 	}
 
-	startLipSync() {
-		this.manager.switchLipSync()
+	startLipSync(text) {
+		const length = text.length
+		this.manager.startLipSync(length)
 	}
 }

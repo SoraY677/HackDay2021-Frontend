@@ -98,8 +98,8 @@ export class Manager {
 		loop();
 	}
 
-	switchLipSync() {
-		this._model.switchLipSync()
+	startLipSync(count) {
+		this._model.startLipSync(count)
 	}
 
 }

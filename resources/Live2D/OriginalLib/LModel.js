@@ -249,8 +249,8 @@ export class LModel extends CubismUserModel {
 	/**
 	 * リップシンクを制御
 	 */
-	switchLipSync() {
-		this._modelAction.switchLipSync()
+	startLipSync(count) {
+		this._modelAction.startLipSync(count)
 	}
 
 }
