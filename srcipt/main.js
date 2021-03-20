@@ -14,7 +14,8 @@ import {
 // 定数
 const commentListDOM = document.getElementById('comment_list')
 
-
+// 初期化系
+// - モデル
 const model = new Model(
 	document.getElementById('model_canvas'), {
 		'modelRootDir': '../resources/Live2D//Model/Hiyori/',
@@ -22,8 +23,6 @@ const model = new Model(
 		'modelMoc': 'Hiyori.moc3'
 	}
 )
-
-// 初期化系
 // - 音声録音セッティング
 const voiceRecog = new Recognition(
 	commentListDOM,
@@ -37,6 +36,7 @@ const voiceRecog = new Recognition(
 			model.startRandomMotion()
 		}, 4000);
 
-	})
+	}
+)
 
 voiceRecog.startRecog(commentListDOM)
