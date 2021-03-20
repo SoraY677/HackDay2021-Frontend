@@ -1,0 +1,21 @@
+{
+  "name": "hackday2021-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "build": "npx webpack --mode production",
+    "dev": "npx webpack --watch --mode development",
+    "serve": "npx webpack serve --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoraY677/HackDay2021-Frontend.git"
+  },
+  "author": "soray677",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoraY677/HackDay2021-Frontend/issues"
+  },
+  "homepage": "https://github.com/SoraY677/HackDay2021-Frontend#readme"
+}
