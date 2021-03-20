@@ -1,25 +1,32 @@
-export function insertCommentDOM(targetDOM, text, targetNum) {
-	// ユーザ
-	if (targetNum == 0) {
-		targetDOM.insertAdjacentHTML('beforeend',
-			`
+export function insertCommentDOM(targetDOM, text) {
+	targetDOM.insertAdjacentHTML('beforeend',
+		`
 		<li class="comment left">
 		<p>${text}</p>
 		</li>
 		`)
-	}
-	// コンピュータ
-	else if (targetNum == 1) {
-		targetDOM.insertAdjacentHTML('beforeend',
-			`
-		<li class="comment right">
-		<p>${text}</p>
-		</li>
+
+	const position = targetDOM.scrollHeight
+	targetDOM.scrollTo(0, position);
+}
+
+let isLoadingShow = false
+export function shLoading(targetDOM, text = '') {
+	// 消えてる => 見せる
+	if (!isLoadingShow) {
+		targetDOM.insertAdjacentHTML(
+			'beforeend', `
+			<li class="comment right">
+			<div class='loader'></div>
+			</li>
+			
 		`)
+		isLoadingShow = true
 	}
-	//コメント対象者の番号指定がおかしい 
+	//見えてる => 消す
 	else {
-		throw ('コメントをした対象がおかしいので確認')
+		targetDOM.innerHTML = `<p>${text}</p>`
+		isLoadingShow = false
 	}
 	const position = targetDOM.scrollHeight
 	targetDOM.scrollTo(0, position);

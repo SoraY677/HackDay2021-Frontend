@@ -7,6 +7,7 @@ import {
 	Live2DMgr as Model
 } from './Live2DMgr'
 import {
+	shLoading,
 	insertCommentDOM,
 	fetchAdviserComment
 } from './Common'
@@ -28,10 +29,14 @@ const voiceRecog = new Recognition(
 	commentListDOM,
 	() => {
 		const recogText = voiceRecog.stopRecog()
+		setTimeout(() => {
+			shLoading(commentListDOM)
+		}, 800);
 		setTimeout(async () => {
+
 			const result = await fetchAdviserComment(recogText)
-			insertCommentDOM(commentListDOM, result, 1)
-			model.startLipSync('hogehoge')
+			shLoading(commentListDOM.lastElementChild, result)
+			model.startLipSync(result)
 			voiceRecog.startRecog()
 			model.startRandomMotion()
 		}, 4000);
