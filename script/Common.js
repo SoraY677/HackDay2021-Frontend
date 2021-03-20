@@ -32,7 +32,7 @@ export function shLoading(targetDOM, text = '') {
 	targetDOM.scrollTo(0, position);
 }
 
-export async function fetchAdviserComment(text) {
+export function fetchAdviserComment(text) {
 	return new Promise((resolve, reject) => {
 		const req = new XMLHttpRequest();
 		req.onreadystatechange = function () {
