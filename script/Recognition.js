@@ -16,6 +16,7 @@ export class Recognition {
 		// 文章を読み取った際にDOMに反映していく処理
 		this.recognition.onresult = (event) => {
 			this.recogTextList.push(String(event.results[0][0].transcript).replace(/\s+/g, ""))
+			console.log(his.recogTextList[this.comment_i]);
 			insertCommentDOM(targetDOM, this.recogTextList[this.comment_i], 0)
 			// コールバック関数
 			callback()
