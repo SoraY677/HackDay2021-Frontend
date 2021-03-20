@@ -7,14 +7,27 @@ import {
 import {
 	Live2DMgr as Model
 } from './Live2DMgr'
+import {
+	fetchAdviserComment
+} from './Common'
 
+// 定数
+const commentListDOM = document.getElementById('comment_list')
 
 
 // 初期化系
 // - 音声録音セッティング
-const voiceRecog = new Recognition(document.getElementById('comment_list'))
+const voiceRecog = new Recognition(
+	commentListDOM,
+	() => {
+		voiceRecog.stopRecog()
+		setTimeout(() => {
+			fetchAdviserComment(commentListDOM)
+			voiceRecog.startRecog()
+		}, 4000);
+	})
 
-voiceRecog.startRecog()
+voiceRecog.startRecog(commentListDOM)
 
 const model = new Model(
 	document.getElementById('model_canvas'), {

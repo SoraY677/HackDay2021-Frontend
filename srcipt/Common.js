@@ -21,6 +21,11 @@ export function insertCommentDOM(targetDOM, text, targetNum) {
 	else {
 		throw ('コメントをした対象がおかしいので確認')
 	}
+}
 
+export function fetchAdviserComment(targetDOM) {
+	//TODO:外部通信でアドバイザのコメント取得
+	const sampleReply = 'hogehoge'
+	insertCommentDOM(targetDOM, sampleReply, 1)
 
 }

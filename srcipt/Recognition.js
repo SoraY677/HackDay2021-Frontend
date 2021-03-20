@@ -3,18 +3,22 @@ import {
 } from './Common'
 
 export class Recognition {
-	constructor(targetDOM) {
+	constructor(targetDOM, callback) {
 		const SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 		this.recognition = new SpeechRecognition();
 		this.recognition.continuous = true;
 
+		this.recogTextList = []
 		this.isRecogStarted = false
 
+		this.comment_i = 0
 		// 文章を読み取った際にDOMに反映していく処理
-		this.comment_i = 0;
 		this.recognition.onresult = (event) => {
-			insertUserCommentDOM(targetDOM, event.results[this.comment_i][0].transcript, 0)
-			this.comment_i++;
+			this.recogTextList.push(event.results[0][0].transcript)
+			insertCommentDOM(targetDOM, this.recogTextList[this.comment_i], 0)
+			// コールバック関数
+			callback()
+			this.comment_i++
 		}
 	}
 
