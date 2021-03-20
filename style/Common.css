@@ -1,8 +1,17 @@
 :root {}
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	width: 100vw !important;
 	height: 100vh !important;
 	margin: unset !important;
 	overflow: hidden !important;
+}
+
+ul {
+	margin: unset;
+	list-style: none;
 }
