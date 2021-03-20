@@ -3,11 +3,11 @@ import "../style/main.css"
 import {
 	Recognition
 } from "./Recognition"
-
 import {
 	Live2DMgr as Model
 } from './Live2DMgr'
 import {
+	insertCommentDOM,
 	fetchAdviserComment
 } from './Common'
 
@@ -28,9 +28,10 @@ const model = new Model(
 const voiceRecog = new Recognition(
 	commentListDOM,
 	() => {
-		voiceRecog.stopRecog()
-		setTimeout(() => {
-			fetchAdviserComment(commentListDOM)
+		const recogText = voiceRecog.stopRecog()
+		setTimeout(async () => {
+			const result = await fetchAdviserComment(recogText)
+			insertCommentDOM(commentListDOM, result, 1)
 			model.startLipSync('hogehoge')
 			voiceRecog.startRecog()
 			model.startRandomMotion()

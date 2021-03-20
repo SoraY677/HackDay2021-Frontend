@@ -31,5 +31,6 @@ export class Recognition {
 	stopRecog() {
 		this.recognition.stop()
 		this.isRecogStarted = false
+		return this.recogTextList[this.comment_i]
 	}
 }

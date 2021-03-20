@@ -23,9 +23,19 @@ export function insertCommentDOM(targetDOM, text, targetNum) {
 	}
 }
 
-export function fetchAdviserComment(targetDOM) {
-	//TODO:外部通信でアドバイザのコメント取得
-	const sampleReply = 'hogehoge'
-	insertCommentDOM(targetDOM, sampleReply, 1)
+export async function fetchAdviserComment(text) {
+	return new Promise((resolve, reject) => {
+		const req = new XMLHttpRequest();
+		req.onreadystatechange = function () {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					// 通信成功時に
+					resolve(JSON.parse(req.response)['msg'])
+				}
+			}
+		}
+		req.open('GET', `http://ec2-3-112-68-32.ap-northeast-1.compute.amazonaws.com/?text=${text}`)
+		req.send()
+	})
 
 }
