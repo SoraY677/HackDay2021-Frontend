@@ -224,8 +224,8 @@ export class LModel extends CubismUserModel {
 				this._model.getCanvasHeight());
 
 		const projectionMatrix = new CubismMatrix44();
-		projectionMatrix.scale(1, 1);
-		projectionMatrix.translateRelative(0, -1.3)
+		projectionMatrix.scale(2, 2);
+		projectionMatrix.translateRelative(0, -1)
 		projectionMatrix.scaleRelative(3, 3);
 		projectionMatrix.multiplyByMatrix(modelMatrix);
 
