@@ -253,4 +253,12 @@ export class LModel extends CubismUserModel {
 		this._modelAction.startLipSync(count)
 	}
 
+	/**
+	 * モーションを行う
+	 */
+	startRandomMotion() {
+		const index = Math.floor(Math.random() * this._modelAction._motionList.length)
+		this._modelAction.fireMotionTrigger(index)
+	}
+
 }

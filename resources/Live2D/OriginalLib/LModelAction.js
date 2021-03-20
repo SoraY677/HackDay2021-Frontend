@@ -177,7 +177,7 @@ export class LModelAction extends CubismUserModel {
 			this._pose.updateParameters(model, deltaTimeSeconds)
 		}
 		if (!this._motionManager.isFinished()) {
-			this._motionManager.updateMotion(model, deltaTimeSeconds);
+			this._motionManager.updateMotion(model._model, deltaTimeSeconds);
 		}
 		model._model.saveParameters();
 

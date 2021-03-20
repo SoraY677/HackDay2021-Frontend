@@ -12,4 +12,8 @@ export class Live2DMgr {
 		const length = text.length
 		this.manager.startLipSync(length)
 	}
+
+	startRandomMotion() {
+		this.manager.startRandomMotion()
+	}
 }

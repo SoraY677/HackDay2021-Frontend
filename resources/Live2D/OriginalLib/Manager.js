@@ -102,4 +102,8 @@ export class Manager {
 		this._model.startLipSync(count)
 	}
 
+	startRandomMotion() {
+		this._model.startRandomMotion()
+	}
+
 }

@@ -33,7 +33,9 @@ const voiceRecog = new Recognition(
 			fetchAdviserComment(commentListDOM)
 			model.startLipSync('hogehoge')
 			voiceRecog.startRecog()
+			model.startRandomMotion()
 		}, 4000);
+
 	})
 
 voiceRecog.startRecog(commentListDOM)
