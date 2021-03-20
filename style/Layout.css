@@ -14,4 +14,5 @@
 
 #comment_container {
 	height: 50%;
+	overflow: scroll
 }
