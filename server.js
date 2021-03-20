@@ -2,9 +2,12 @@ const path = require('path')
 const express = require('express')
 const app = express()
 const DIST_DIR = path.join(__dirname, "dist")
-const CSS_DIR = path.join(__dirname, "style")
+const RESOURCES_DIR = path.join(__dirname, "resources")
 const HTML_FILE = path.join(__dirname, 'index.html')
-app.use(express.static(HTML_FILE), express.static(DIST_DIR), express.static(CSS_DIR))
+
+app.use('/dist', express.static(DIST_DIR))
+app.use('/resources', express.static(RESOURCES_DIR))
+
 app.get('*', (req, res) => {
 	res.sendFile(HTML_FILE)
 })
