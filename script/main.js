@@ -45,4 +45,7 @@ const voiceRecog = new Recognition(
 	recogCallBack
 )
 
-voiceRecog.startRecog()
+document.getElementById('start_btn').onclick = () => {
+	document.getElementById('title').classList.add('invisible')
+	voiceRecog.startRecog()
+}

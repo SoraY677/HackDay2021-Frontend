@@ -5,6 +5,10 @@
 	box-sizing: border-box;
 }
 
+p {
+	margin: unset
+}
+
 body {
 	width: 100vw !important;
 	height: 100vh !important;

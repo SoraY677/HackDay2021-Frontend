@@ -5,6 +5,59 @@ main {
 }
 
 /* ------------------------------------
+title
+------------------------------------ */
+
+.title {
+	display: flex;
+	flex-wrap: wrap;
+	z-index: 10000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(#ff84ff, #ffa3d1) fixed;
+	align-items: center;
+	transition-duration: 0.8s;
+}
+
+.title-inner {
+	width: 80%;
+	padding: 1em;
+	margin: 10% auto 0 auto;
+	border-radius: 2em;
+	background-color: #fff;
+}
+
+.title.invisible {
+	opacity: 0;
+	z-index: -1000;
+}
+
+.title-inner>* {
+	font-size: 3em;
+	text-align: center;
+	width: 100%;
+}
+
+.title>button {
+	width: 90%;
+	font-size: 2.3em;
+	border-radius: 2em;
+	margin: 1em auto;
+	font-family: 'Yusei Magic', sans-serif;
+	background-color: #fff;
+	border: 2px solid #fff;
+	box-shadow: 2px 2px 2px;
+	transition-duration: 0.3s;
+}
+
+.title>button:hover {
+	background-color: #7f7fff;
+}
+
+/* ------------------------------------
 コメントのデザイン
 ------------------------------------ */
 
