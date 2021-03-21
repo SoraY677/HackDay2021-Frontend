@@ -10,10 +10,13 @@ p {
 }
 
 body {
-	width: 100vw !important;
-	height: 100vh !important;
-	margin: unset !important;
-	overflow: hidden !important;
+	position: relative;
+	max-width: 480px;
+	min-width: 360px;
+	width: 100vw;
+	height: 100vh;
+	margin: 0 auto;
+	overflow: hidden;
 	font-family: 'Yusei Magic', sans-serif;
 }
 

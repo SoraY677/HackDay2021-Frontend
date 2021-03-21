@@ -1,8 +1,12 @@
+body {
+	overflow: hidden
+}
+
 .canvas-container {
 	z-index: -1;
 	top: 0;
 	left: 0;
-	width: 100vw;
+	width: 100%;
 	padding: 20px;
 }
 
@@ -14,7 +18,7 @@
 }
 
 #comment_container {
-	height: 70%;
+	height: 60%;
 	padding: 1em 1em;
 	overflow-y: hidden;
 	overflow-x: hidden;
