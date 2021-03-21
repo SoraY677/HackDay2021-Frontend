@@ -17,17 +17,18 @@ export class Recognition {
 		this.recognition.onresult = (event) => {
 			const text = event.results[0][0].transcript
 			this.recogTextList.push(text.replace(/\s+/g, ''))
-			insertCommentDOM(targetDOM, text, 0)
+			insertCommentDOM(targetDOM.lastElementChild, text)
 			// コールバック関数
 			callback()
 			this.comment_i++
 		}
 	}
 
-	startRecog() {
+	startRecog(targetDom) {
 		if (this.isRecogStarted) this.recognition.stop()
 		this.recognition.start()
 		this.isRecogStarted = true
+		insertCommentDOM(targetDom)
 	}
 
 	stopRecog() {

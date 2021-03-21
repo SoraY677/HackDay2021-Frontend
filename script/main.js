@@ -34,7 +34,7 @@ function recogCallBack() {
 		fetchAdviserComment(recogText).then(res => {
 			shLoading(commentListDOM.lastElementChild, res)
 			model.startLipSync(res)
-			voiceRecog.startRecog()
+			voiceRecog.startRecog(commentListDOM)
 			model.startRandomMotion()
 		})
 	}, 4000);
@@ -47,5 +47,5 @@ const voiceRecog = new Recognition(
 
 document.getElementById('start_btn').onclick = () => {
 	document.getElementById('title').classList.add('invisible')
-	voiceRecog.startRecog()
+	voiceRecog.startRecog(commentListDOM)
 }

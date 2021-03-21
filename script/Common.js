@@ -1,10 +1,18 @@
-export function insertCommentDOM(targetDOM, text) {
-	targetDOM.insertAdjacentHTML('beforeend',
-		`
+let isRecording = false
+export function insertCommentDOM(targetDOM, text = '') {
+	if (!isRecording) {
+		targetDOM.insertAdjacentHTML('beforeend',
+			`
 		<li class="comment left">
-		<p>${text}</p>
+		<div class='rec-now'></div>
+		<p>rec</p>
 		</li>
 		`)
+		isRecording = true
+	} else {
+		targetDOM.innerHTML = `<p>${text}</p>`
+		isRecording = false
+	}
 
 	const position = targetDOM.scrollHeight
 	targetDOM.scrollTo(0, position);
